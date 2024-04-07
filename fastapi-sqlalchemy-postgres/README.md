@@ -32,7 +32,13 @@ source .venv/bin/activate
 pip install -r requirements.txt
 ```
 
-4. Run the FastAPI application using Uvicorn:
+5. Create and fill .env
+
+```
+cp .env.example .env
+```
+
+6. Run the FastAPI application using Uvicorn:
 ```
 RUN uvicorn app.main:app --reload --port 8000
 ```
