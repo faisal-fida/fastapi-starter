@@ -26,6 +26,12 @@ source .venv/bin/activate
 .venv\Scripts\activate.bat
 ```
 
+4. Install dependencies
+
+```
+pip install -r requirements.txt
+```
+
 4. Run the FastAPI application using Uvicorn:
 ```
 RUN uvicorn app.main:app --reload --port 8000
