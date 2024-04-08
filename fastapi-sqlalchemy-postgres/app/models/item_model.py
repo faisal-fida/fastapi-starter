@@ -1,6 +1,8 @@
 from sqlalchemy import Column, Integer, String
 from . import Base
 from typing import Any
+from app.utils.utility import to_dict
+
 
 class Item(Base):
     __tablename__ = "items"
@@ -10,9 +12,4 @@ class Item(Base):
     description = Column(String)
 
     def dict(self) -> dict[str, Any]:
-        """
-        Returns a dictionary representation of the model instance.
-
-        Includes all attributes defined on the model class.
-        """
-        return {c.name: getattr(self, c.name) for c in self.__table__.columns}
+        return to_dict(self)
