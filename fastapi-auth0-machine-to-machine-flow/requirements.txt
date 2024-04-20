@@ -1,0 +1,7 @@
+fastapi==0.110.0
+python-dotenv==1.0.1
+uvicorn==0.28.0
+PyJWT==2.8.0
+pydantic-settings==2.2.1
+cryptography==42.0.5
+auth0-python==4.7.1
