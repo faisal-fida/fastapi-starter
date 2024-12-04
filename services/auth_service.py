@@ -1,21 +1,17 @@
-# --- Library Imports ---
 from fastapi import status, HTTPException
 from auth0.authentication import Database
 from auth0.exceptions import Auth0Error
 from auth0.authentication import GetToken
-# ---
 
-# --- User Imports ---
-from ..schema.auth_schema import SignupSchema, LoginSchema
-from ..schema.response import ResponseSchema
-from ..config.env import env 
-# ---
 
-# --- Constants ---
+
+from schema.auth_schema import SignupSchema, LoginSchema
+from schema.response import ResponseSchema
+from config.env import env
+
 AUTH0_DOMAIN = env.AUTH0_DOMAIN
 CLIENT_ID = env.CLIENT_ID
 CLIENT_SECRET = env.CLIENT_SECRET
-# ---
 
 
 class AuthService:
@@ -29,8 +25,6 @@ class AuthService:
                 "firstName": user.firstName,
                 "lastName": user.lastName,
                 "phoneNumber": user.phoneNumber,
-                "NMLS": user.NMLS,
-                "lenderId": f"{user.lenderId}",
             }
 
             # This calls the signup custom database script in auth0. Refer to create_user.js in auth0_database_action_scripts

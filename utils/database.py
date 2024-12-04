@@ -1,6 +1,6 @@
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy import create_engine
-from app.config.env import env
+from config.env import env
 
 DATABASE_CONNECTION_URI = env.DATABASE_CONNECTION_URI
 

@@ -1,7 +1,7 @@
 from sqlalchemy import Column, Integer, String
 from . import Base
 from typing import Any
-from app.utils.utility import to_dict
+from utils.utility import to_dict
 
 
 class Item(Base):

@@ -1,4 +1,4 @@
-from pydantic import BaseModel, EmailStr, validator
+from pydantic import BaseModel
 
 
 class SignupSchema(BaseModel):
@@ -7,8 +7,6 @@ class SignupSchema(BaseModel):
     email: str
     password: str
     phoneNumber: str
-    NMLS: str
-    lenderId: int
 
 
 class LoginSchema(BaseModel):
