@@ -11,8 +11,9 @@ class Asset(Base):
     name = Column(String, unique=True, index=True)
     category = Column(String)
     date = Column(DateTime)
-    eligible = Column(Boolean)
-    zakatRate = Column(Integer)
+    eligible = Column(Boolean, nullable=True)
+    zakatRate = Column(Integer, nullable=True)
+    amount = Column(Integer)
 
     def dict(self) -> dict[str, Any]:
         return to_dict(self)

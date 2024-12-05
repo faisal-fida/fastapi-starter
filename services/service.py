@@ -45,7 +45,7 @@ async def caluclate_zakat(asset: AssetSchema):
     }
     if asset.category in zakatable_categories:
         zakat_amount = asset.amount * (zakatable_categories.get(asset.category, 0) / 100)
-        return zakat_amount, True
+        return int(zakat_amount), True
     elif asset.category in non_zakatable_categories:
         return 0, False
     return 0, False
@@ -53,7 +53,7 @@ async def caluclate_zakat(asset: AssetSchema):
 
 async def create_asset(db: Session, asset: AssetSchema):
     asset.zakatRate, asset.eligible = await caluclate_zakat(asset)
-    new_asset = Asset(**asset.dict(exclude={"amount"}))
+    new_asset = Asset(**asset.dict())
     db.add(new_asset)
     db.commit()
     return new_asset
