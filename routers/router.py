@@ -30,3 +30,10 @@ async def create_user_handler(user: SignupSchema, db: Session = Depends(get_db))
 @router.post("/login", response_model=LoginSchema)
 async def login_user_handler(user: LoginSchema, db: Session = Depends(get_db)):
     return await login_user(db=db, user=user)
+
+
+# Category is Zakatable or not?
+@router.get("/zakatable/{asset_id}")
+async def is_zakatable(asset_id: int, db: Session = Depends(get_db)):
+    asset = await get_asset(db=db, asset_id=asset_id)
+    return {"is_zakatable": asset.is_zakatable}

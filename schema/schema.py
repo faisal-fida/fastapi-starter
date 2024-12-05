@@ -21,3 +21,4 @@ class AssetSchema(BaseModel):
     date: datetime
     eligible: bool
     zakatRate: int
+    amount: int
