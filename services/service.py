@@ -28,6 +28,9 @@ async def login_user(db: Session, user: LoginSchema):
 
 
 async def create_asset(db: Session, asset: AssetSchema):
+    # import datetime
+
+    # asset.date = datetime.datetime.strptime(asset.date, "%Y-%m-%d")
     new_asset = Asset(**asset.dict())
     db.add(new_asset)
     db.commit()

@@ -9,7 +9,7 @@ class Asset(Base):
 
     id = Column(Integer, primary_key=True, index=True)
     name = Column(String, unique=True, index=True)
-    cateory = Column(String)
+    category = Column(String)
     date = Column(DateTime)
     eligible = Column(Boolean)
     zakatRate = Column(Integer)

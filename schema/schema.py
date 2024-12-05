@@ -1,4 +1,5 @@
 from pydantic import BaseModel
+from datetime import datetime
 
 
 class SignupSchema(BaseModel):
@@ -6,7 +7,7 @@ class SignupSchema(BaseModel):
     email: str
     password: str
     role: str
-    assetID: str
+    assetID: int
 
 
 class LoginSchema(BaseModel):
@@ -17,6 +18,6 @@ class LoginSchema(BaseModel):
 class AssetSchema(BaseModel):
     name: str
     category: str
-    date: str
+    date: datetime
     eligible: bool
     zakatRate: int
