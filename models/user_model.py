@@ -14,7 +14,7 @@ class User(Base):
     email = Column(String)
     password = Column(String)
     role = Column(String)
-    assetID = Column(Integer, ForeignKey(Asset.id))
+    assetID = Column(Integer, ForeignKey(Asset.id), nullable=True)
 
     asset = relationship("Asset", foreign_keys="User.assetID")
 

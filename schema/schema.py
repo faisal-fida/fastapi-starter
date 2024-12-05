@@ -2,12 +2,11 @@ from pydantic import BaseModel
 
 
 class SignupSchema(BaseModel):
-    firstName: str
-    lastName: str
+    name: str
     email: str
     password: str
-    phoneNumber: str
     role: str
+    assetID: str
 
 
 class LoginSchema(BaseModel):
