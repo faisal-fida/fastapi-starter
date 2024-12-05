@@ -1,15 +1,23 @@
 from fastapi import FastAPI
-from routers import auth_router
-from routers import item_router
+from routers import router
+from fastapi.middleware.cors import CORSMiddleware
 import utils.database  # noqa
 
 
 # initialize app
 app = FastAPI()
 
+# add cors middleware
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["http://localhost:4200"],
+    allow_credentials=True,
+    allow_methods=["*"],  # Allow all HTTP methods
+    allow_headers=["*"],  # Allow all headers
+)
+
 # initialize routes
-app.include_router(auth_router.router, prefix="/auth", tags=["Auth0"])
-app.include_router(item_router.router, prefix="/items", tags=["Application"])
+app.include_router(router.router, prefix="/api", tags=["Application"])
 
 
 # initialize base routes
@@ -21,4 +29,4 @@ def base_route():
 if __name__ == "__main__":
     import uvicorn
 
-    uvicorn.run(app, host="0.0.0.0", port=8000)
+    uvicorn.run(app, host="127.0.0.1", port=8000)
